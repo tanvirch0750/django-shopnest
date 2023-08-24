@@ -105,20 +105,20 @@ def activate(request, uidb64, token):
         return redirect('register')
 
 
-# @login_required(login_url = 'login')
-# def dashboard(request):
-#     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
-#     orders_count = orders.count()
+@login_required(login_url = 'login')
+def dashboard(request):
+    # orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
+    # orders_count = orders.count()
 
-#     try:
-#         userprofile = UserProfile.objects.get(user=request.user)
-#     except ObjectDoesNotExist:
-#         userprofile = UserProfile.objects.create(user=request.user)
-#     context = {
-#         'orders_count': orders_count,
-#         'userprofile': userprofile,
-#     }
-#     return render(request, 'accounts/dashboard.html', context)
+    try:
+        userprofile = UserProfile.objects.get(user=request.user)
+    except ObjectDoesNotExist:
+        userprofile = UserProfile.objects.create(user=request.user)
+    context = {
+        # 'orders_count': orders_count,
+        'userprofile': userprofile,
+    }
+    return render(request, 'accounts/dashboard.html', context)
 
 def forgotPassword(request):
     if request.method == 'POST':
