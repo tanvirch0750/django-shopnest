@@ -20,7 +20,7 @@
               <i class="fa fa-bars"></i> All category
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href=""
+              <a class="dropdown-item" href="{% url 'store' %}"
                 >All Products
               </a>
               {% for category in categories %}
@@ -73,7 +73,7 @@
                 >Welcome Tanvir!</small
               >
               <div>
-                <a href="">Dashboard</a>
+                <a href="{% url 'dashboard' %}">Dashboard</a>
                 <span class="dark-transp"> | </span>
                 <a href="{% url 'logout' %}"> Logout</a>
               </div>
