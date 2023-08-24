@@ -86,7 +86,7 @@
     <div class="row">
       <div class="col-md-9">
         <form
-          action=""
+          action="{% url 'submit_review' single_product.id %}"
           method="POST"
         >
           {% csrf_token %}
